@@ -2,7 +2,7 @@
 set -e
 
 echo "📦 Installing frontend dependencies..."
-cd frontend/myapp
+cd react_project/frontend/myapp
 npm install
 
 echo "🧪 Building frontend..."
