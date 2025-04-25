@@ -11,7 +11,7 @@ npm run build
 echo "✅ Frontend build success!"
 
 echo "📦 Installing backend dependencies..."
-cd ../backend
+cd react_project/backend
 npm install
 
 echo "🧪 Syntax check for backend server.js"
