@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SugarDust Bakery</title>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <style>
+      body {
+        font-family: 'Georgia', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fdf6f0;
+        color: #5d4037;
+      }
+      header {
+        background-color: #f8b195;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 5px dotted #e67e22;
+      }
+      .logo {
+        font-size: 48px;
+        font-weight: bold;
+        color: #5d4037;
+        margin: 0;
+      }
+      .tagline {
+        font-style: italic;
+        font-size: 18px;
+        margin-top: 5px;
+      }
+      nav {
+        background-color: #f8b195;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        color: #5d4037;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .banner {
+        background-color: #f3e5ab;
+        text-align: center;
+        padding: 60px 20px;
+        background-image: url('https://images.unsplash.com/photo-1517433367423-c7e5b0f35086?q=80&w=1080');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .banner h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+      .banner p {
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .section {
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .section-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+        position: relative;
+        display: inline-block;
+      }
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 3px;
+        background-color: #e67e22;
+        bottom: -10px;
+        left: 20%;
+      }
+      .menu-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .menu-category {
+        margin-bottom: 40px;
+      }
+      .category-title {
+        font-size: 24px;
+        color: #e67e22;
+        margin-bottom: 20px;
+      }
+      .menu-items {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+      }
+      .menu-item {
+        display: inline-block;
+        width: 300px;
+        margin: 15px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        text-align: center;
+        vertical-align: top;
+      }
+      .menu-item img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 2px solid #e67e22;
+      }
+      .item-name {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .item-price {
+        font-size: 18px;
+        color: #e67e22;
+        margin-bottom: 10px;
+      }
+      .item-description {
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+      .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      }
+      .about-text {
+        text-align: left;
+        line-height: 1.6;
+      }
+      .hours-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      }
+      .hours-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      .hours-table th, .hours-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      .hours-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+      .contact-info {
+        margin-bottom: 30px;
+      }
+      .contact-info p {
+        margin: 10px 0;
+      }
+      .social-links {
+        margin-top: 20px;
+      }
+      .social-links a {
+        display: inline-block;
+        margin: 0 10px;
+        color: #5d4037;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .social-links a:hover {
+        color: #e67e22;
+      }
+      footer {
+        background-color: #5d4037;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      .footer-text {
+        margin: 0;
+        font-size: 14px;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 25px;
+        background-color: #e67e22;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      .button:hover {
+        background-color: #d35400;
+      }
+      .separator {
+        height: 3px;
+        width: 100px;
+        background-color: #e67e22;
+        margin: 30px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="logo">SugarDust Bakery</h1>
+      <p class="tagline">Freshly Baked Happiness Since 1995</p>
+    </header>
+    
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Our Menu</a>
+      <a href="#about">About Us</a>
+      <a href="#hours">Hours</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    
+    <section id="home" class="banner">
+      <h2>Welcome to SugarDust Bakery</h2>
+      <p>Indulge in our handcrafted pastries and breads made with love using traditional recipes and the finest ingredients</p>
+      <br>
+      <a href="#menu" class="button">View Our Menu</a>
+    </section>
+    
+    <section id="menu" class="section">
+      <h2 class="section-title">Our Delicious Menu</h2>
+      <div class="menu-container">
+        <div class="menu-category">
+          <h3 class="category-title">Signature Breads</h3>
+          <div class="menu-items">
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=1080" alt="Sourdough Bread">
+              <h4 class="item-name">Artisan Sourdough</h4>
+              <p class="item-price">$6.95</p>
+              <p class="item-description">Our signature sourdough with a perfect crust and tender, tangy interior. Made with our 100-year-old starter.</p>
+            </div>
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1620921586333-b7447fa728e6?q=80&w=1080" alt="French Baguette">
+              <h4 class="item-name">French Baguette</h4>
+              <p class="item-price">$4.50</p>
+              <p class="item-description">Crispy on the outside, fluffy on the inside. Baked fresh throughout the day.</p>
+            </div>
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?q=80&w=1080" alt="Multigrain Loaf">
+              <h4 class="item-name">Seeded Multigrain</h4>
+              <p class="item-price">$7.50</p>
+              <p class="item-description">Nutrient-rich loaf with seven different grains and seeds for a hearty, wholesome experience.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="separator"></div>
+        
+        <div class="menu-category">
+          <h3 class="category-title">Sweet Pastries</h3>
+          <div class="menu-items">
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1609950547346-a4f431435b2b?q=80&w=1080" alt="Croissant">
+              <h4 class="item-name">Butter Croissant</h4>
+              <p class="item-price">$3.95</p>
+              <p class="item-description">Flaky, buttery layers that melt in your mouth. Made with European-style butter.</p>
+            </div>
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1080" alt="Chocolate Cake">
+              <h4 class="item-name">Chocolate Ganache Cake</h4>
+              <p class="item-price">$5.95 / slice</p>
+              <p class="item-description">Rich, moist chocolate cake layered with silky ganache and topped with chocolate curls.</p>
+            </div>
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1627834377411-8da5f4f09de8?q=80&w=1080" alt="Cinnamon Roll">
+              <h4 class="item-name">Cinnamon Roll</h4>
+              <p class="item-price">$4.50</p>
+              <p class="item-description">Soft, swirled pastry filled with cinnamon sugar and topped with cream cheese frosting.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="separator"></div>
+        
+        <div class="menu-category">
+          <h3 class="category-title">Savory Delights</h3>
+          <div class="menu-items">
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?q=80&w=1080" alt="Quiche">
+              <h4 class="item-name">Spinach & Feta Quiche</h4>
+              <p class="item-price">$6.95 / slice</p>
+              <p class="item-description">Buttery crust filled with a savory mixture of eggs, spinach, and tangy feta cheese.</p>
+            </div>
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1621510456787-b0cc6e48d0d5?q=80&w=1080" alt="Cheese Bread">
+              <h4 class="item-name">Cheese & Herb Focaccia</h4>
+              <p class="item-price">$5.50</p>
+              <p class="item-description">Italian flatbread topped with fresh herbs, garlic, and a blend of cheeses.</p>
+            </div>
+            <div class="menu-item">
+              <img src="https://images.unsplash.com/photo-1627308595216-334c47305ec1?q=80&w=1080" alt="Chicken Pie">
+              <h4 class="item-name">Chicken Pot Pie</h4>
+              <p class="item-price">$8.95</p>
+              <p class="item-description">Flaky golden crust filled with chicken, vegetables, and creamy sauce. Perfect comfort food.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="about" class="section" style="background-color: #f3e5ab;">
+      <h2 class="section-title">Our Story</h2>
+      <div class="about-container">
+        <div class="about-text">
+          <p>SugarDust Bakery began in 1995 when our founder, Maria, decided to share her family's treasured recipes with the community. What started as a small corner shop has grown into a beloved local institution, while still maintaining the same dedication to quality and tradition.</p>
+          <p>Every morning at 3 AM, our bakers arrive to begin the day's work, ensuring that everything is freshly baked when we open our doors. We use only the finest ingredients - organic flour, European-style butter, and local eggs - to create our signature breads and pastries.</p>
+          <p>We believe that good food brings people together, and that's what drives us every day. Our recipes have been passed down through generations, and we take pride in preserving these traditions while also innovating with new creations to delight our customers.</p>
+          <p>Thank you for being part of our story. We hope to serve you and your family for generations to come.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="hours" class="section">
+      <h2 class="section-title">Hours & Location</h2>
+      <div class="hours-container">
+        <p>Visit us at: <strong>123 Main Street, Bakerytown, BK 45678</strong></p>
+        <table class="hours-table">
+          <tr>
+            <th>Day</th>
+            <th>Hours</th>
+          </tr>
+          <tr>
+            <td>Monday</td>
+            <td>7:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>7:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>7:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>7:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>7:00 AM - 8:00 PM</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>7:00 AM - 8:00 PM</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>8:00 AM - 4:00 PM</td>
+          </tr>
+        </table>
+        <p style="margin-top: 20px; font-style: italic;">Note: We often sell out of popular items by afternoon, so come early for the best selection!</p>
+      </div>
+    </section>
+    
+    <section id="contact" class="section" style="background-color: #f3e5ab;">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <p><strong>Phone:</strong> (555) 123-4567</p>
+          <p><strong>Email:</strong> hello@sugardustbakery.com</p>
+          <p><strong>Address:</strong> 123 Main Street, Bakerytown, BK 45678</p>
+        </div>
+        <p>For special orders, please contact us at least 48 hours in advance.</p>
+        <div class="social-links">
+          <p>Follow us on social media:</p>
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+      <p class="footer-text">&copy; 2025 SugarDust Bakery. All rights reserved.</p>
+      <p class="footer-text">Handcrafted with love since 1995</p>
+      <p> this website is created by amudhavan</p>
+    </footer>
+  </body>
+</html>
